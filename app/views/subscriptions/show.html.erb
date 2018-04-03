@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Athlete:</strong>
+  <%= @subscription.athlete %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @subscription.category %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @subscription.event %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @subscription.number %>
+</p>
+
+<p>
+  <strong>Tempo:</strong>
+  <%= @subscription.tempo %>
+</p>
+
+<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
+<%= link_to 'Back', subscriptions_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  dob: 2018-04-02
+  email: MyString
+  estado: 
+  cidade: 
+
+two:
+  name: MyString
+  dob: 2018-04-02
+  email: MyString
+  estado: 
+  cidade: 

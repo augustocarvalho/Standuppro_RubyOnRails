@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  athlete: one
+  category: one
+  event: one
+  number: 1
+  tempo: 2018-04-02 16:55:05
+
+two:
+  athlete: two
+  category: two
+  event: two
+  number: 1
+  tempo: 2018-04-02 16:55:05
