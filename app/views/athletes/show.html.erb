@@ -1,29 +1,57 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @athlete.name %>
-</p>
+       <div class="row">  
+        <div class="col-lg-6 col-md-7 col-sm-6"> 
+          <p id="notice"><%= notice %></p>
+          
+          <p>
+            <strong>Name:</strong>
+            <%= @athlete.name %>
+          </p>
+          
+          <p>
+            <strong>Estado:</strong>
+            <%= @athlete.estado %>
+          </p>
+          
+          <p>
+            <strong>Cidade:</strong>
+            <%= @athlete.cidade %>
+          </p>
 
-<p>
-  <strong>Dob:</strong>
-  <%= @athlete.dob %>
-</p>
+        </div>
+        <div class="col-lg-6 col-md-7 col-sm-6">
+    
+            <h2> Last Results </h2>
+            <% @subscriptions = @athlete.subscriptions %>
+            
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                  <thead>
+                    <tr>
+                      <th>Event</th>
+                      <th>Number</th>
+                      <th>Category</th>
+                      <th>Time</th>
+                      <th colspan="4"></th>
+                    </tr>
+                  </thead>
+                
+                  <tbody>
+                    <% @subscriptions.each do |subscription| %>
+                      <tr>
+                        <td><%= @event = subscription.event 
+                                @event.title %>  </td>
+                        <td><%= subscription.number %></td>
+                        <td><%= @category = subscription.category 
+                                @category.name %></td>
+                        <td><%= subscription.tempo %></td>
+                        
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @athlete.email %>
-</p>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @athlete.estado %>
-</p>
-
-<p>
-  <strong>Cidade:</strong>
-  <%= @athlete.cidade %>
-</p>
-
-<%= link_to 'Edit', edit_athlete_path(@athlete) %> |
-<%= link_to 'Back', athletes_path %>

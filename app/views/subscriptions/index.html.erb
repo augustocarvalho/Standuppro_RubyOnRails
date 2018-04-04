@@ -1,35 +1,40 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1>Subscriptions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Athlete</th>
-      <th>Category</th>
-      <th>Event</th>
-      <th>Number</th>
-      <th>Tempo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= form_tag subscriptions_path, :method => 'get' do %> 
+  <%= collection_select :subscription, :event_id, Event.all, :id, :title, prompt: true %>
+  <%= collection_select :subscription, :category_id, Category.all, :id, :name, prompt: true %>
+  <%= submit_tag "Apply Filter" %>
+<% end %> 
 
-  <tbody>
-    <% @subscriptions.each do |subscription| %>
+
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
       <tr>
-        <td><%= subscription.athlete %></td>
-        <td><%= subscription.category %></td>
-        <td><%= subscription.event %></td>
-        <td><%= subscription.number %></td>
-        <td><%= subscription.tempo %></td>
-        <td><%= link_to 'Show', subscription %></td>
-        <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
-        <td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Athlete</th>
+        <th>Category</th>
+        <th>Event</th>
+        <th>Number</th>
+        <th>Tempo</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+  
+    <tbody>
+      <% @subscriptions.each do |subscription| %>
+        <tr>
+          <td><%= subscription.athlete.name %>  </td>
+          <td><%= subscription.category.name %></td>
+          <td><%= subscription.event.title %></td>
+          <td><%= subscription.number %></td>
+          <td><%= subscription.tempo %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Subscription', new_subscription_path %>

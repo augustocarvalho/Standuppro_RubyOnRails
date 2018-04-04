@@ -1,5 +1,7 @@
 class AthletesController < InheritedResources::Base
 
+	
+
   private
 
     def athlete_params
