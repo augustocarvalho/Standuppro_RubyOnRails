@@ -11,5 +11,4 @@ permit_params :athlete_id, :category_id, :event_id, :number, :tempo
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
 end

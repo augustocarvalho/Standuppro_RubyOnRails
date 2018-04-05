@@ -1,15 +1,15 @@
 class SubscriptionsController < InheritedResources::Base
   
   def index
-  	if params[:subscription] && !(params[:subscription][:event_id] == '' && params[:subscription][:event_id] == '')  
+  	if params[:subscription]   
       if params[:subscription][:event_id] == ''  
         @subscriptions = Subscription.category(params[:subscription][:category_id])
       elsif params[:subscription][:category_id] == ''    
         @subscriptions = Subscription.event(params[:subscription][:event_id])
-      else
+      elsif 
         @subscriptions = Subscription.event(params[:subscription][:event_id]).category(params[:subscription][:category_id]).order(:tempo)  
       end
-    elsif 
+    else 
        @subscriptions = Subscription.all.order(:event_id, :category_id)
 
     end
