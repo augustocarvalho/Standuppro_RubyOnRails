@@ -4,10 +4,9 @@ class Subscription < ApplicationRecord
   belongs_to :event
 
 
-  def self.search(search1, search2)
-  	where("event_id = ?","#{search1}")
-  	where("category_id = ?","#{search2}")
-  end
+scope :category, -> (category) { where category_id: category }
+scope :event, -> (event) { where event_id: event }
+
 
 
 end
