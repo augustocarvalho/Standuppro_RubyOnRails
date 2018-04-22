@@ -11,9 +11,12 @@ class SubscriptionsController < InheritedResources::Base
       end
     else 
        @subscriptions = Subscription.all.order(:event_id, :category_id)
-
     end
   end
+
+
+
+
 
   private
 
