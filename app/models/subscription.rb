@@ -7,5 +7,6 @@ class Subscription < ApplicationRecord
 scope :category, -> (category) { where category_id: category }
 scope :event, -> (event) { where event_id: event }
 scope :number, -> (number) { where number: number }
+scope :last_event, -> { where event_id: self.maximum(:event_id) }
 
 end

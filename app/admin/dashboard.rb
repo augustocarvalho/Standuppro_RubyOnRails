@@ -1,23 +1,12 @@
 ActiveAdmin.register_page "Dashboard" do
    
-  sidebar :help do
-    ul do
-      li "Cadastro de Chegada das Provas Longas"
-      li "Gerencias Atletas"
-      li "Gerenciar Eventos"
-      li "Gerenciar Inscrições"
-    end
-  end
-
-
 menu priority: 1
   content title: proc { I18n.t("active_admin.dashboard") } do
     
     columns do
         column do
-                
-                panel "Recent Subscriptions" do
-                  table_for Subscription.event(3).each do |_subscription|
+                panel "Subscriptions last Event" do
+                  table_for Subscription.last_event.each do |_subscription|
                     column(:number)    { |subscription| link_to(subscription.number, admin_subscription_path(subscription)) }   
                     column("Athlete") {|subscription| subscription.athlete.name}
                     column("Category") {|subscription| subscription.category.name}
@@ -28,7 +17,7 @@ menu priority: 1
               end
 
         column do
-                panel "Athletes" do
+                panel "All Athletes" do
                   table_for Athlete.order("name desc").each do |_athlete|
                     column(:name)    { |athlete| link_to(athlete.name, admin_athlete_path(athlete)) }
                   end

@@ -7,11 +7,6 @@ class EventsController < InheritedResources::Base
   	else
         @subscriptions = @event.subscriptions.order(:tempo)
     end
-    
-    if params[:subscription] && params[:subscription][:number] != ''
-        @event.subscriptions.number(params[:subscription][:number]).update(tempo: params[:subscription][:time])
-        redirect_to(admin_event_path())
-    end
   end
 
   private
